@@ -26,10 +26,30 @@ knitr::opts_chunk$set(
   fig.width = 10
 )
 ```
+####  Duplicate chunk label 'setup', which has been used for the chunk:
+####  setup only once 
+```{r , message=FALSE, warning=FALSE}
+# if (!require("BiocManager", quietly = TRUE))
+#     install.packages("BiocManager")
+# 
+# BiocManager::install("maftools")
 
+```
+
+```{r , message=FALSE, warning=FALSE}
+#install.packages('R.utils')
+# sessionInfo()
+```
 ```{r setup, message=FALSE, warning=FALSE}
 library(maftools)
 ```
+```{r setup, message=FALSE, warning=FALSE}
+library(maftools)
+```
+
+
+"C:/Users/zhen-/AppData/Local/R/win-library/4.5/maftools"
+
 
 ```{r}
 #path to TCGA LAML MAF file
@@ -53,7 +73,7 @@ oncoplot(maf = laml, draw_titv = TRUE)
 
 ```{r}
 #One can use any colors, here in this example color palette from RColorBrewer package is used
-vc_cols = RColorBrewer::brewer.pal(n = 8, name = 'Paired') # << ==== change colors here 
+vc_cols = RColorBrewer::brewer.pal(n = 8, name = 'Paired')           # << ==== change colors here 
 names(vc_cols) = c(
   'Frame_Shift_Del',
   'Missense_Mutation',
@@ -67,7 +87,7 @@ names(vc_cols) = c(
 
 print(vc_cols)
 
-#oncoplot(maf = laml, colors = vc_cols, top = 10) # << ==== change colors here 
+#oncoplot(maf = laml, colors = vc_cols, top = 10)                    # << ==== change colors here 
 oncoplot(maf = laml,, draw_titv = TRUE,  colors = vc_cols, top = 10) # << ==== change colors here 
 ```
 
@@ -123,8 +143,10 @@ oncoplot(maf = laml.plus.gistic, top = 10)
 ```
 <font color='brown'>
 This plot shows frequent deletions in TP53 gene which is located on one of the significantly deleted locus 17p13.2.
-</font> foo
-### Custom copy-number table
+</font>
+
+### Custom copy-number table <font color='brown'> (CN : Copy Number)
+</font>
 In case there is no GISTIC results available, one can generate a table containing CN status for known genes in known samples. This can be easily created and read along with MAF file.
 
 For example lets create a dummy CN alterations for `DNMT3A` in random 20 samples.
